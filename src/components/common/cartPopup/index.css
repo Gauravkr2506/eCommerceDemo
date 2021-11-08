@@ -1,0 +1,13 @@
+.cartContainer {
+  /* background-color: red; */
+  min-width: 800px;
+}
+.cartHeader {
+  position: relative;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}

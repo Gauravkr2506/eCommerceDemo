@@ -1,0 +1,117 @@
+/* ====================Header style==================================================*/
+
+nav {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: yellowgreen;
+  height: 50px;
+}
+
+nav > a {
+  border-right: 1px solid #bbb;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.activeMenuItem {
+  background-color: #04aa6d;
+}
+
+.floatRight {
+  float: right;
+}
+
+span.cartCount {
+  position: relative;
+  font-size: 13px;
+  background-color: white;
+  border-radius: 8px;
+  left: 22px;
+  bottom: 16px;
+  font-weight: bold;
+}
+
+/*======== end of header menu style=============================================== */
+
+.gridWith4Column {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 10px;
+}
+
+.gridItemWith4Column {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+}
+
+.card {
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gridItemWith4Column > .container {
+  padding: 2px 5px;
+}
+
+.gridItemWith4Column > .container h4 {
+  font-size: medium;
+  margin: 0px;
+}
+
+.gridItemWith4Column > .container p {
+  margin: 0px;
+  font-size: small;
+}
+
+.gridItemWith4Column > .addToCartIcon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.gridItemWith4Column > .addedToCart {
+  background-color: yellow;
+}
+
+.gridItemWith4Column > .addToCartIcon:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 769px) {
+  .gridWith4Column {
+    grid-template-columns: auto auto auto;
+  }
+
+  .gridItemWith4Column > .addToCartIcon {
+    right: 10px;
+    top: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .gridWith4Column {
+    grid-template-columns: auto auto;
+  }
+  .gridItemWith4Column > .addToCartIcon {
+    right: 5px;
+    top: 5px;
+  }
+}

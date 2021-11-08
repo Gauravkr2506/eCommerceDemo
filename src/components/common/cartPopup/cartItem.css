@@ -1,0 +1,13 @@
+.cartItemContainer {
+  background-color: aquamarine;
+  position: relative;
+}
+
+.cartItemContainer > .image {
+  display: inline-block;
+}
+.cartItemContainer > h4 {
+  position: absolute;
+  display: inline-block;
+  top: 20%;
+}
