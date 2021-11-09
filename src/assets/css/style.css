@@ -17,6 +17,17 @@ nav > a {
   padding: 14px 16px;
   text-decoration: none;
 }
+
+nav > div {
+  border-right: 1px solid #bbb;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
 .activeMenuItem {
   background-color: #04aa6d;
 }
@@ -44,11 +55,12 @@ span.cartCount {
 }
 
 .gridItemWith4Column {
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(235, 235, 235, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
   margin: 10px;
+  border-radius: 8px;
 }
 
 .card {

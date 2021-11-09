@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 
 import store from "./store";
-
+document.cookie = "applicantAuth=cV874bxX9TmbBp2H8vsZkFaZ";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

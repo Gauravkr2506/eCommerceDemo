@@ -1,34 +1,28 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { FaOpencart } from "react-icons/fa";
 
 import CompanyLogo from "./../../../assets/images/ejam_logo_Black.png";
+import { openCartPopup } from "./../../../store/action";
 
 interface HeaderProps {
   count: number;
+  openCartPopup: () => void;
 }
 
-function HeaderMenu({ count }: HeaderProps) {
+function HeaderMenu({ count, openCartPopup }: HeaderProps) {
   return (
     <nav>
-      <NavLink exact activeClassName="activeMenuItem" to="/">
+      <Link to="/">
         <img src={CompanyLogo} height={20} alt="eJam" />
-      </NavLink>
-      <NavLink exact activeClassName="activeMenuItem" to="/about">
-        About
-      </NavLink>
+      </Link>
 
-      <NavLink
-        className="floatRight"
-        exact
-        activeClassName="activeMenuItem"
-        to="/users"
-      >
+      <div className="floatRight" onClick={openCartPopup}>
         <span className="cartCount"> {count}</span>
 
         <FaOpencart size={30}></FaOpencart>
-      </NavLink>
+      </div>
     </nav>
   );
 }
@@ -36,4 +30,8 @@ function HeaderMenu({ count }: HeaderProps) {
 const mapStateToProps = (state: any) => ({
   count: state.productInCart.length,
 });
-export default connect(mapStateToProps)(HeaderMenu);
+
+const mapDispatchToProps = {
+  openCartPopup,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderMenu);

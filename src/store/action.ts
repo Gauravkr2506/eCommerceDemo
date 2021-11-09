@@ -7,6 +7,15 @@ export const updateRootReducer = (payload: any) => ({
   payload,
 });
 
+export const closeCartPopup = () => ({
+  type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
+  payload: { isModalOpen: false },
+});
+export const openCartPopup = () => ({
+  type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
+  payload: { isModalOpen: true },
+});
+
 interface actionInterface {
   type: string;
   payload: any;
@@ -19,7 +28,6 @@ interface ProductListData {
 }
 
 export const getProductListAction = () => (dispatch: dispatchType) => {
-  debugger;
   return fetch("https://test.ejam.com/api/recruitment/frontendtask1/products")
     .then((response: any) => {
       return response.json();
@@ -32,7 +40,7 @@ export const getProductListAction = () => (dispatch: dispatchType) => {
         },
       });
 
-      console.log(data);
+      // console.log(data);
       return data;
     })
     .catch((error: any) => {
@@ -42,15 +50,35 @@ export const getProductListAction = () => (dispatch: dispatchType) => {
 
 export const toggleAddRemoveProductToCartAction =
   (product: any) => (dispatch: any, getState: any) => {
-    debugger;
     const productInCart = [...getState().productInCart];
-
+    debugger;
     if (product.addedInCart) {
       let index = productInCart.findIndex((obj: any) => obj.id === product.id);
       productInCart.splice(index, 1);
+
+      dispatch({
+        type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
+        payload: {
+          productInCart,
+        },
+      });
     } else {
-      productInCart.push(product);
+      productInCart.push({ ...product, quantity: 1 });
+      dispatch({
+        type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
+        payload: {
+          productInCart,
+          isModalOpen: true,
+        },
+      });
     }
+  };
+
+export const changeQuantity =
+  (id: number, quantity: number) => (dispatch: any, getState: any) => {
+    const productInCart = [...getState().productInCart];
+    let index = productInCart.findIndex((obj: any) => obj.id === id);
+    productInCart[index] = { ...productInCart[index], quantity };
     dispatch({
       type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
       payload: {

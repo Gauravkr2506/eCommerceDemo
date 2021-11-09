@@ -15,12 +15,13 @@ function Home(props: HomeProps) {
 
   useEffect(() => {
     getProductListAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="gridWith4Column">
       {productList.map((obj) => (
-        <ListItem {...obj} />
+        <ListItem key={obj.id} {...obj} />
       ))}
     </div>
   );

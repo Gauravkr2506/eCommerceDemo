@@ -1,13 +1,27 @@
 .cartItemContainer {
-  background-color: aquamarine;
+  background-color: #f7fff0;
+  border-bottom: 1px solid #ccc;
+
   position: relative;
 }
 
 .cartItemContainer > .image {
   display: inline-block;
 }
-.cartItemContainer > h4 {
+.itemValueContainer p {
+  position: relative;
+}
+
+.itemValueContainer > p {
   position: absolute;
   display: inline-block;
   top: 20%;
+}
+
+.itemValueContainer > select,
+.itemValueContainer > div {
+  position: relative;
+  display: inline-block;
+  top: 39%;
+  left: 20px;
 }

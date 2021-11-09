@@ -1,34 +1,83 @@
 import React from "react";
+import { connect } from "react-redux";
+import { IoMdClose } from "react-icons/io";
 
 import "./cartItem.css";
+import {
+  changeQuantity,
+  toggleAddRemoveProductToCartAction,
+} from "./../../../store/action";
 
-export default function CartItem(props: any) {
+function CartItem(props: any) {
   const {
     name,
     currency,
-    description,
+    // description,
     id,
     imageUrl,
     price,
-    shippingPrice,
-    addedInCart,
+    // shippingPrice,
+    quantity,
+    changeQuantity,
+    toggleAddRemoveProductToCartAction,
   } = props;
+
+  const changeCartItemQuantity = (e: any) => {
+    changeQuantity(id, +e.target.value);
+  };
+  const deleteCartItem = () => {
+    toggleAddRemoveProductToCartAction({ id, addedInCart: true });
+  };
   return (
     <div className="cartItemContainer">
-      <table>
-        <thead>
-          <tr>
-            <td>Item</td>
-            <td>Quantity</td>
-            <td>Price</td>
-            <td>Shipping Price</td>
-            <td>Sub Total</td>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <img className="image" src={imageUrl} alt={name} />
-      <h4>{name}</h4>
+      <div className="flex">
+        <div className="flex_5 itemValueContainer">
+          <img className="image" src={imageUrl} alt={name} />
+          <p>{name}</p>
+        </div>
+        <div
+          className="flex_2 itemValueContainer"
+          style={{ justifyContent: "center" }}
+        >
+          <select
+            name="quantity"
+            value={quantity}
+            onChange={changeCartItemQuantity}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <div className="flex_2 itemValueContainer">
+          <div>{`${currency} ${price}`}</div>
+        </div>
+        <div className="flex_3 itemValueContainer">
+          <div>{`${currency} ${price}`}</div>
+        </div>
+        <div className="flex_2 itemValueContainer">
+          <div>{`${currency} ${(quantity * price).toFixed(2)}`}</div>
+        </div>
+        <div className="flex_1 itemValueContainer">
+          <div>
+            <IoMdClose onClick={deleteCartItem} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
+const mapDispatchToProps = {
+  changeQuantity,
+  toggleAddRemoveProductToCartAction,
+};
+
+export default connect(null, mapDispatchToProps)(CartItem);

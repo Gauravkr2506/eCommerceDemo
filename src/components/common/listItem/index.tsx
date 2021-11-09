@@ -44,9 +44,8 @@ function ListItem(props: ListItemProps) {
       addedInCart,
     });
   };
-  debugger;
   return (
-    <div className="gridItemWith4Column card">
+    <div className="gridItemWith4Column card" key={id}>
       <img src={imageUrl} alt={name} />
       <div
         className={`addToCartIcon ${addedInCart && "addedToCart"}`}
