@@ -16,6 +16,7 @@
   padding: 10px;
   border: 1px solid rgba(235, 235, 235, 0.8);
   box-shadow: 2px 4px 8px 0 rgba(49, 104, 52, 0.8);
+  z-index: 20;
 }
 
 .watchingPeople:hover {

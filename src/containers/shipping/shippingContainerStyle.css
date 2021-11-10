@@ -11,3 +11,15 @@
   /* max-height: 250px; */
   padding: 20px;
 }
+
+@media only screen and (max-width: 769px) {
+  .shippingContainer {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .shippingContainer {
+    flex-direction: column;
+  }
+}
