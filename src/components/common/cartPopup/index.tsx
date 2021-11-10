@@ -20,6 +20,7 @@ const customStyles = {
     paddingRight: 0,
     // marginLeft: 0,
     paddingLeft: 0,
+    // position: "relative",
     transform: "translate(-50%, -50%)",
   },
 };

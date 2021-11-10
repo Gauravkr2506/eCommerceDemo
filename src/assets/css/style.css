@@ -127,3 +127,6 @@ span.cartCount {
     top: 5px;
   }
 }
+p {
+  word-wrap: break-word;
+}

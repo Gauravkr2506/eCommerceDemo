@@ -93,3 +93,17 @@
   background-color: yellowgreen;
   border: yellowgreen;
 }
+
+@media only screen and (max-width: 769px) {
+  .cartContainer {
+    /* background-color: red; */
+    min-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .cartContainer {
+    /* background-color: red; */
+    min-width: 300px;
+  }
+}
