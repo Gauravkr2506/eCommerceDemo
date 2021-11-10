@@ -43,7 +43,7 @@ function CartModal(props: CartMOdalProps) {
     onCloseModal();
   };
   const handleContinueShoppingButtonClick = () => {
-    history.replace("/");
+    history.replace("/eCommerceDemo");
     onCloseModal();
   };
   return (

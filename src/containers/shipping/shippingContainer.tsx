@@ -19,7 +19,7 @@ function ShippingContainer(props: any) {
 
     submitShippingFormData({ ...obj, currency, total, totalShippingCost }).then(
       (data: any) => {
-        history.replace("/");
+        history.replace("/eCommerceDemo");
       }
     );
   };
