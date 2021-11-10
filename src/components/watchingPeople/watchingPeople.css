@@ -1,0 +1,24 @@
+.watchingPeople {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  word-break: break-word;
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  /* margin-right: 20px; */
+
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgba(235, 235, 235, 0.8);
+  box-shadow: 2px 4px 8px 0 rgba(49, 104, 52, 0.8);
+}
+
+.watchingPeople:hover {
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); */
+  box-shadow: 4px 8px 16px 0 rgba(49, 104, 52, 0.8);
+}

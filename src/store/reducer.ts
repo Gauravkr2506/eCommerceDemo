@@ -12,12 +12,12 @@ const initialState: StateInterface = {
   isModalOpen: false,
 };
 
-interface ActionInterface {
-  type: string;
-  payload: any;
-}
+// interface ActionInterface {
+//   type: any | null;
+//   payload: any | null;
+// }
 
-const rootReducer = (state = initialState, action: ActionInterface) => {
+const rootReducer = (state = initialState, action: any) => {
   // const newState = JSON.parse(JSON.stringify(state))
 
   const { type, payload } = action;

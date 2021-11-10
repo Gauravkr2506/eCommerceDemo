@@ -39,7 +39,7 @@ nav > div {
 span.cartCount {
   position: relative;
   font-size: 13px;
-  background-color: white;
+  background-color: yellow;
   border-radius: 8px;
   left: 22px;
   bottom: 16px;

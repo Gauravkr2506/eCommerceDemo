@@ -5,7 +5,8 @@ import Modal from "react-modal";
 import { IoMdClose } from "react-icons/io";
 
 import "./index.css";
-import CartItem from "./cartItem";
+
+import CartItemContainer from "./cartItemContainer";
 import { closeCartPopup } from "./../../../store/action";
 
 const customStyles = {
@@ -34,14 +35,7 @@ interface CartMOdalProps {
 }
 function CartModal(props: CartMOdalProps) {
   const history = useHistory();
-  const {
-    productInCart,
-    isModalOpen,
-    onCloseModal,
-    total,
-    totalShippingCost,
-    currency,
-  } = props;
+  const { productInCart, isModalOpen, onCloseModal } = props;
 
   const handleCheckoutButtonClick = () => {
     history.replace("/shipping");
@@ -66,53 +60,8 @@ function CartModal(props: CartMOdalProps) {
           </div>
           <IoMdClose onClick={onCloseModal} className="modalClose" />
         </div>
+        <CartItemContainer boxClass="cartItemBox" />
 
-        <div className="flex flexHeading">
-          <div className="flex_5" style={{ marginLeft: 10 }}>
-            Item
-          </div>
-          <div className="flex_2">Quantity</div>
-          <div className="flex_2">Price</div>
-          <div className="flex_3">Shipping Price</div>
-          <div className="flex_2">Sub Total</div>
-          <div className="flex_1"></div>
-        </div>
-        <div className="cartItemBox">
-          {productInCart.map((obj: any) => (
-            <CartItem key={obj.id} {...obj} />
-          ))}
-        </div>
-        <div
-          className="totalContainer"
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            marginRight: 10,
-            marginTop: 10,
-          }}
-        >
-          <div className="">
-            <div className="">
-              <label className="bold">Total:</label>
-              <span>
-                {currency} {total}
-              </span>
-            </div>
-
-            <div className="">
-              <label className="bold">Shipping Charge:</label>
-              <span className="">
-                {currency} {totalShippingCost}
-              </span>
-            </div>
-            <div className="">
-              <label className="bold">Grand Total:</label>
-              <span>
-                {currency} {total + totalShippingCost}
-              </span>
-            </div>
-          </div>
-        </div>
         <div
           className="cartFooter"
           style={{

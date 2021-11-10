@@ -5,13 +5,18 @@ import "./assets/css/style.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-import store from "./store";
+import storeCreator from "./store";
+
+const { store, persistor } = storeCreator();
 document.cookie = "applicantAuth=cV874bxX9TmbBp2H8vsZkFaZ";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

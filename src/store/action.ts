@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 export const ActionTypes = {
   UPDATE_ROOT_REDUCER_DATA: "UPDATE_ROOT_REDUCER_DATA",
 };
@@ -51,7 +52,6 @@ export const getProductListAction = () => (dispatch: dispatchType) => {
 export const toggleAddRemoveProductToCartAction =
   (product: any) => (dispatch: any, getState: any) => {
     const productInCart = [...getState().productInCart];
-    debugger;
     if (product.addedInCart) {
       let index = productInCart.findIndex((obj: any) => obj.id === product.id);
       productInCart.splice(index, 1);
@@ -85,4 +85,32 @@ export const changeQuantity =
         productInCart,
       },
     });
+  };
+
+export const submitShippingFormData =
+  (data: any) => (dispatch: dispatchType) => {
+    return fetch("https://test.ejam.com/api/recruitment/frontendtask1/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response: any) => {
+        return response.json();
+      })
+      .then((data: any) => {
+        toast.success("Order placed successfully");
+        dispatch({
+          type: ActionTypes.UPDATE_ROOT_REDUCER_DATA,
+          payload: {
+            productInCart: [],
+          },
+        });
+        // console.log(data);
+        return data;
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   };
