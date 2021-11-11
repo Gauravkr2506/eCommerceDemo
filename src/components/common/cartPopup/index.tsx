@@ -6,7 +6,8 @@ import { IoMdClose } from "react-icons/io";
 
 import "./index.css";
 
-import CartItemContainer from "./cartItemContainer";
+import CartItemContainerBigDevices from "./cartItemContainerBigDevices";
+import CartItemContainerSmallDevices from "./cartItemContainerSmallDevices";
 import { closeCartPopup } from "./../../../store/action";
 
 const customStyles = {
@@ -39,7 +40,7 @@ function CartModal(props: CartMOdalProps) {
   const { productInCart, isModalOpen, onCloseModal } = props;
 
   const handleCheckoutButtonClick = () => {
-    history.replace("/shipping");
+    history.replace("/eCommerceDemo/shipping");
     onCloseModal();
   };
   const handleContinueShoppingButtonClick = () => {
@@ -61,8 +62,8 @@ function CartModal(props: CartMOdalProps) {
           </div>
           <IoMdClose onClick={onCloseModal} className="modalClose" />
         </div>
-        <CartItemContainer boxClass="cartItemBox" />
-
+        <CartItemContainerBigDevices boxClass="cartItemBox" />
+        <CartItemContainerSmallDevices boxClass="cartItemBox" />
         <div
           className="cartFooter"
           style={{

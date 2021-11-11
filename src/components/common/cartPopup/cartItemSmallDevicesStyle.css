@@ -1,0 +1,23 @@
+.row {
+  display: flex;
+}
+.relative {
+  position: relative;
+}
+.rowCenter {
+  justify-content: center;
+}
+
+.smallDeviceCartItemContainer {
+  padding: 10px;
+  position: relative;
+}
+.rowSpaceAround {
+  justify-content: space-around;
+}
+
+.smallDeviceCartItemCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./index.css";
-import CartItem from "./cartItem";
+import CartItem from "./cartItemSmallDevices";
 
 interface CartItemContainerProps {
   productInCart: Array<any>;
@@ -16,17 +16,7 @@ const CartItemContainer = React.memo(function (props: CartItemContainerProps) {
   const { productInCart, boxClass, total, totalShippingCost, currency } = props;
 
   return (
-    <>
-      <div className="flex flexHeading">
-        <div className="flex_5" style={{ marginLeft: 10 }}>
-          Item
-        </div>
-        <div className="flex_2">Quantity</div>
-        <div className="flex_2">Price</div>
-        <div className="flex_3">Shipping Price</div>
-        <div className="flex_2">Sub Total</div>
-        <div className="flex_1"></div>
-      </div>
+    <div className="smallDevice">
       <div className={boxClass}>
         {productInCart.map((obj: any) => (
           <CartItem key={obj.id} {...obj} />
@@ -36,7 +26,8 @@ const CartItemContainer = React.memo(function (props: CartItemContainerProps) {
         className="totalContainer"
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "center",
+          textAlign: "center",
           marginRight: 10,
           marginTop: 10,
         }}
@@ -63,7 +54,7 @@ const CartItemContainer = React.memo(function (props: CartItemContainerProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 });
 

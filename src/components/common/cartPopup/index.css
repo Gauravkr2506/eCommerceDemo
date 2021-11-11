@@ -93,11 +93,29 @@
   background-color: yellowgreen;
   border: yellowgreen;
 }
+.smallDevice {
+  display: none;
+}
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 1100px) {
+  .cardInformationContainer .bigDevice {
+    display: none;
+  }
+  .cardInformationContainer .smallDevice {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 789px) {
   .cartContainer {
     /* background-color: red; */
     min-width: 400px;
+  }
+  .bigDevice {
+    display: none;
+  }
+  .smallDevice {
+    display: block;
   }
 }
 
@@ -105,5 +123,11 @@
   .cartContainer {
     /* background-color: red; */
     min-width: 300px;
+  }
+  .bigDevice {
+    display: none;
+  }
+  .smallDevice {
+    display: block;
   }
 }

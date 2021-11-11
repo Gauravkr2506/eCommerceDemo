@@ -36,6 +36,9 @@ function App() {
           <Route exact path="/eCommerceDemo">
             <Home />
           </Route>
+          <Route exact path="/eCommerceDemo/shipping">
+            <Home />
+          </Route>
           <Route exact path="/shipping">
             <Shipping />
           </Route>

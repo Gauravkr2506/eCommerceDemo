@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import "./shippingContainerStyle.css";
-import CartItemContainer from "./../../components/common/cartPopup/cartItemContainer";
+import CartItemContainerBigDevices from "../../components/common/cartPopup/cartItemContainerBigDevices";
+import CartItemContainerSmallDevices from "../../components/common/cartPopup/cartItemContainerSmallDevices";
 import { submitShippingFormData } from "./../../store/action";
 
 function ShippingContainer(props: any) {
@@ -29,10 +30,11 @@ function ShippingContainer(props: any) {
         <h1>Shipping</h1>
       </div>
       <div className="shippingContainer">
-        <div className="flex_1 cardInformationContainer">
-          <CartItemContainer boxClass="shippingItemBox" />
+        <div className="flex_5 cardInformationContainer">
+          <CartItemContainerBigDevices boxClass="shippingItemBox" />
+          <CartItemContainerSmallDevices boxClass="shippingItemBox" />
         </div>
-        <div className="flex_1">
+        <div className="flex_2">
           <div className="cardInformationContainer">
             <form onSubmit={onSubmitForm}>
               <label htmlFor="name">Name:</label>
@@ -54,8 +56,7 @@ function ShippingContainer(props: any) {
                 name="cardNumber"
                 placeholder="card number"
               />
-              <br />
-              <br />
+
               <label htmlFor="expiry">Expiry:</label>
               <input
                 maxLength={5}

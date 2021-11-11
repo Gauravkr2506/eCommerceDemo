@@ -6,7 +6,7 @@ import "./cartItem.css";
 import {
   changeQuantity,
   toggleAddRemoveProductToCartAction,
-} from "./../../../store/action";
+} from "../../../store/action";
 
 function CartItem(props: any) {
   const {
